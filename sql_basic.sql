@@ -65,5 +65,25 @@ SELECT *
 FROM customers
 WHERE last_name REGEXP 'field$';
 
--- |: we can search for multiple words
+-- |: we can search for multiple words --> name is pipe
+SELECT *
+FROM customers
+WHERE last_name REGEXP 'field|mac|rose';
+
+-- []:
+SELECT *
+FROM customers
+WHERE last_name REGEXP '[gim]e';
+-- > that matches any customer who have 'ge','ie','me' in their last name
+
+SELECT *
+FROM customers
+WHERE last_name REGEXP 'e[fmq]';
+-- > we can use this pattern after char
+
+SELECT *
+FROM customers
+WHERE last_name REGEXP '[a-h]e'; -- > It means that one of the a b c ... g h must be before e
+
+
 
