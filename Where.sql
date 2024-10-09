@@ -1,3 +1,4 @@
+-- This is the code archive for the 'WHERE' Guideline
 use sql_store;
 
 SELECT first_name,
@@ -84,6 +85,17 @@ WHERE last_name REGEXP 'e[fmq]';
 SELECT *
 FROM customers
 WHERE last_name REGEXP '[a-h]e'; -- > It means that one of the a b c ... g h must be before e
+
+-- > Search for null data in table
+SELECT *
+FROM customers
+WHERE phone IS NULL;
+
+SELECT *
+FROM customers
+WHERE phone IS  NOT NULL;
+
+
 
 
 
