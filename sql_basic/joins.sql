@@ -59,3 +59,15 @@ JOIN payment_methods pm
     ON p.payment_method = pm.payment_method_id;
 
 -- compound join conditions
+USE sql_store;
+
+SELECT *
+FROM order_items oi
+JOIN order_item_notes oin
+    ON oi.order_id = oin.order_Id
+    and oi.product_id = oin.product_id;
+
+-- Implpicit join Syntax
+SELECT *
+FROM orders o, customers c
+WHERE o.customer_id = c.customer_id;
