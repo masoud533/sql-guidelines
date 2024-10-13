@@ -97,4 +97,13 @@ JOIN shippers sh
 select *
 from order_items oi
 join order_item_notes oin
-    using (order_id, product_id)
+    using (order_id, product_id);
+
+-- natural join
+SELECT
+    o.order_id,
+    c.first_name
+FROM orders o
+NATURAL JOIN customers c;
+-- now whit this natural join, we don't exactly specify the column bane
+-- "but not recommended because sometime it produces unexpected results"

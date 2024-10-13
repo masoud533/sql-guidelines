@@ -72,7 +72,7 @@ FROM customers
 WHERE last_name REGEXP 'field|mac|rose';
 
 -- []:
-SELECT *
+SELECT DISTINCT *
 FROM customers
 WHERE last_name REGEXP '[gim]e';
 -- > that matches any customer who have 'ge','ie','me' in their last name
@@ -94,6 +94,8 @@ WHERE phone IS NULL;
 SELECT *
 FROM customers
 WHERE phone IS  NOT NULL;
+
+
 
 
 
