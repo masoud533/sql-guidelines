@@ -71,3 +71,30 @@ JOIN order_item_notes oin
 SELECT *
 FROM orders o, customers c
 WHERE o.customer_id = c.customer_id;
+
+SELECT
+    p.product_id,
+    p.name,
+    oi.quantity
+FROM products p
+LEFT JOIN order_items oi
+    ON p.product_id = oi.product_id;
+
+-- using or USING
+SELECT
+    o.order_id,
+    c.first_name,
+    sh.name as shipper
+FROM orders o
+JOIN customers c
+    USING (customer_id)   -- ON o.customer_id = c.customer_id
+    -- These two ways are the same
+JOIN shippers sh
+    USING (shipper_id);
+-- the using keywords only works if the column name is exactly
+-- the same across different tables
+
+select *
+from order_items oi
+join order_item_notes oin
+    using (order_id, product_id)
