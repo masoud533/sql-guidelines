@@ -102,8 +102,30 @@ join order_item_notes oin
 -- natural join
 SELECT
     o.order_id,
+    o.customer_id,
+    c.customer_id,
     c.first_name
 FROM orders o
 NATURAL JOIN customers c;
 -- now whit this natural join, we don't exactly specify the column bane
+    -- the database engine will look at these two tables and it will join
+        -- them based on the common columns. the two columns have the same name
 -- "but not recommended because sometime it produces unexpected results"
+
+-- cross join
+-- we used cross join to combine every records in first table and
+ -- every records in second table
+SELECT
+    c.first_name as customer,
+    p.name as products
+FROM customers c
+cross join products p
+order by c.first_name;
+
+-- both these queries produce the same result
+
+SELECT
+    c.first_name as customer,
+    p.name as products
+FROM customers c, orders o
+order by c.first_name;
